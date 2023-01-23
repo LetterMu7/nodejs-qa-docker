@@ -19,4 +19,12 @@ describe('GET /hello/:name', () => {
 
     expect(res.body).toEqual({ msg: 'Hello nik from express' })
   });
+
+  test('New test for CI', async () => {
+    const res = await supertest(config.url)
+      .get('/hello/world')
+      .set('Accept', 'application/json');
+
+    expect(res.body).toEqual({ msg: 'Hello world from express' })
+  });
 });
